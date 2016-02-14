@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:paddingLeft="4dp"
+              android:paddingTop="4dp"
+              android:paddingRight="4dp"
+              android:paddingBottom="4dp"
+              android:background="#1f253d">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="5dp"
+        android:layout_height="match_parent"
+        android:id="@+id/for_line">
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@color/background"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:background="@color/color_settings_off"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:background="@drawable/s_wifi_l"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/background"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@drawable/s_wifi_l"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/background"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@drawable/s_wifi_l"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/background"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@drawable/s_wifi_l"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/background"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@drawable/s_wifi_l"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/background"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@drawable/s_wifi_l"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/background"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:background="@drawable/s_wifi_l"
+            android:layout_weight="1"/>
+        <View
+            android:layout_height="3dp"
+            android:layout_width="match_parent"
+
+            android:background="@color/color_settings_off"/>
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_settings_off"
+        >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/frg_wifi"
+            >
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                >
+
+                <LinearLayout
+                    android:id="@+id/btn_options"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:background="@color/color_settings_off"
+                    android:layout_marginRight="6dp">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:background="#1f253d">
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_settings_off"
+                        >
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:layout_gravity="center">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="OPTIONS"
+                                android:id="@+id/textView3"
+                                android:textSize="21sp"
+                                android:textColor="#9c9898"
+                                android:gravity="center_horizontal"
+                                android:layout_gravity="center"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="6dp"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/s_wifi_l"
+                            >
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:layout_gravity="center">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="WI-FIs"
+                        android:id="@+id/textView2"
+                        android:textSize="22sp"
+                        android:textColor="#f4ecec"
+                        android:gravity="center_horizontal"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="6dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginTop="5dp">
+
+                    <ListView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/listView"
+                        />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:background="@color/color_settings_off"
+                        android:layout_weight="1">
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="5dp"
+                        android:layout_height="3dp"
+                        android:background="#1f253d"
+                        android:layout_gravity="right">
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

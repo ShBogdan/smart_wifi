@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="color_settings_off">#14797b</color>
+    <color name="color_settings">#11a8ab</color>
+    <color name="color_wifi_off">#454f78</color>
+    <color name="color_wifi">#6975a4</color>
+    <color name="background">#1f253d</color>
+    <color name="line">#7f1f253d</color>
+    <color name="options">#f4ecec</color>
+    <color name="options_description">#ff52a0</color>
+
+</resources>
