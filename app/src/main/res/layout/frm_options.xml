@@ -5,7 +5,7 @@
               android:layout_height="match_parent"
               android:paddingLeft="8dp"
               android:paddingTop="4dp"
-              android:paddingRight="8dp"
+              android:paddingRight="3dp"
               android:paddingBottom="4dp"
               android:background="#1f253d">
 
@@ -83,7 +83,7 @@
 
                             <LinearLayout
                                 android:orientation="horizontal"
-                                android:layout_width="3dp"
+                                android:layout_width="5dp"
                                 android:layout_height="match_parent"
                                 android:background="@drawable/s_option_rb">
                             </LinearLayout>
@@ -515,7 +515,7 @@
 
             <LinearLayout
                 android:orientation="horizontal"
-                android:layout_width="3dp"
+                android:layout_width="5dp"
                 android:layout_height="match_parent"
                 android:background="@drawable/s_option_rb">
             </LinearLayout>
@@ -526,6 +526,33 @@
             android:layout_width="match_parent"
             android:layout_height="3dp"
             android:background="@color/color_wifi_off"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="5dp"
+        android:layout_height="match_parent"
+        android:background="@color/color_wifi_off">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="#1f253d"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="5dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/sf_option_rb"/>
+        </LinearLayout>
 
     </LinearLayout>
 
