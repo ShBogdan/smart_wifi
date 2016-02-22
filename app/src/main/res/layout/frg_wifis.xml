@@ -25,6 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="43dp"
             android:background="@color/color_settings_off"/>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="8dp"
@@ -39,6 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:background="@drawable/s_wifi_l"/>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
@@ -48,6 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:background="@drawable/s_wifi_l"/>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
@@ -57,6 +60,7 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:background="@drawable/s_wifi_l"/>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
@@ -66,6 +70,7 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:background="@drawable/s_wifi_l"/>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
@@ -75,6 +80,7 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:background="@drawable/s_wifi_l"/>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
@@ -85,13 +91,12 @@
             android:layout_height="fill_parent"
             android:background="@drawable/s_wifi_l"
             android:layout_weight="1"/>
+
         <View
             android:layout_height="3dp"
             android:layout_width="match_parent"
 
             android:background="@color/color_settings_off"/>
-
-
 
 
     </LinearLayout>
@@ -232,7 +237,6 @@
                 </LinearLayout>
 
             </LinearLayout>
-
 
 
         </LinearLayout>

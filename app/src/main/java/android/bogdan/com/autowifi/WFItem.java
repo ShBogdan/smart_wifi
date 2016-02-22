@@ -8,11 +8,12 @@ public class WFItem {
     private ArrayList<String> mCells;
 
 
-    public WFItem() {}
+    public WFItem() {
+    }
 
     public WFItem(Integer mId, String mName, ArrayList<String> cells) {
         this.mId = mId;
-        this.mName  = mName;
+        this.mName = mName;
         this.mCells = cells;
     }
 

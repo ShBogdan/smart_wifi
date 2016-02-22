@@ -4,10 +4,12 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:background="@drawable/frg_option">
+
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:background="@color/line"/>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -18,10 +20,12 @@
         android:gravity="center"
         android:layout_margin="6dp"
         android:id="@+id/tv_name"/>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:background="@color/line"/>
+
     <TimePicker
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -35,6 +39,7 @@
         android:id="@+id/btn_set_time"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="6dp"/>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="3dp"

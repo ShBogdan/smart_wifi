@@ -13,7 +13,7 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-public class FrWiFis  extends Fragment {
+public class FrWiFis extends Fragment {
     WiFiListAdapter mAdapter;
     ArrayList<WFItem> mNetworks;
 
@@ -25,13 +25,12 @@ public class FrWiFis  extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.frg_wifis , null);
+        View view = inflater.inflate(R.layout.frg_wifis, null);
         mNetworks = new WFItemList(getActivity()).getNetworks();
         mListView = (ListView) view.findViewById(R.id.listView);
 
         mAdapter = new WiFiListAdapter(getActivity(), mNetworks);
         mListView.setAdapter(mAdapter);
-
 
 
         mBtnOptions = (LinearLayout) view.findViewById(R.id.btn_options);

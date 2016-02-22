@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class WiFiListAdapter extends BaseAdapter {
     private Context mContext;
     private ArrayList<WFItem> mItems;
-    private WFItem mMenuItem;
+    private WFItem mWFItem;
 
     public WiFiListAdapter(Context context, ArrayList<WFItem> items) {
         mItems = items;
@@ -36,13 +36,13 @@ public class WiFiListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        if(convertView == null){
+        if (convertView == null) {
             convertView = LayoutInflater.from(mContext).inflate(R.layout.list_item, parent, false);
         }
-        mMenuItem = (WFItem) getItem(position);
+        mWFItem = (WFItem) getItem(position);
 
-        ((TextView)convertView.findViewById(R.id.tv_name)).setText(mMenuItem.getName());
-        ((TextView)convertView.findViewById(R.id.tv_description)).setText(mMenuItem.getDescription());
+        ((TextView) convertView.findViewById(R.id.tv_name)).setText(mWFItem.getName());
+        ((TextView) convertView.findViewById(R.id.tv_description)).setText(String.valueOf(mWFItem.getCells()));
 
         return convertView;
     }

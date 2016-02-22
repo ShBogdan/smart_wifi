@@ -53,12 +53,12 @@ public class ServiceMonitor extends Service {
         }
     };
 
-    void setInterval(Integer i){
+    void setInterval(Integer i) {
         this.mInterval = i;
     }
 
-    class GetService extends Binder{
-        ServiceMonitor getSM(){
+    class GetService extends Binder {
+        ServiceMonitor getSM() {
             return ServiceMonitor.this;
         }
     }

@@ -4,7 +4,7 @@
         android:centerX="37%"
         android:startColor="@color/background"
         android:endColor="@color/back_shadow"
-        android:angle="180" >
+        android:angle="180">
     </gradient>
 
 

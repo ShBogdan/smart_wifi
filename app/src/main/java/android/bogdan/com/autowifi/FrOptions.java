@@ -25,7 +25,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-public class FrOptions extends Fragment{
+public class FrOptions extends Fragment {
     final String LOG_TAG = "FI_WI_Log";
     public static final String APP_PREFERENCES = "mysettings";
     public static final String APP_PREFERENCES_ACTIVE_APP = "mysettings";
@@ -77,7 +77,7 @@ public class FrOptions extends Fragment{
             @Override
             public void onServiceConnected(ComponentName name, IBinder service) {
 
-                mServiceMonitor = ((ServiceMonitor.GetService)service).getSM();
+                mServiceMonitor = ((ServiceMonitor.GetService) service).getSM();
                 Log.d(LOG_TAG, "MainActivity onServiceConnected");
                 bound = true;
             }
@@ -93,32 +93,32 @@ public class FrOptions extends Fragment{
         return view;
     }
 
-    public CompoundButton.OnCheckedChangeListener mCbListener(){
+    public CompoundButton.OnCheckedChangeListener mCbListener() {
         CompoundButton.OnCheckedChangeListener cbL = new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                switch (buttonView.getId()){
+                switch (buttonView.getId()) {
 
                     case R.id.cb_enable_wifi:
-                        if(mCbEnable.isChecked()){
+                        if (mCbEnable.isChecked()) {
                             getActivity().startService(new Intent(getActivity(), ServiceMonitor.class));
-                        }else {
+                        } else {
                             getActivity().stopService(new Intent(getActivity(), ServiceMonitor.class));
                         }
                         break;
 
                     case R.id.cb_remember:
-                        if(mCbRemember.isChecked()){
+                        if (mCbRemember.isChecked()) {
                             Toast.makeText(getActivity(), "Enable1", Toast.LENGTH_SHORT).show();
-                        }else {
+                        } else {
                             Toast.makeText(getActivity(), "Disable", Toast.LENGTH_SHORT).show();
                         }
                         break;
 
                     case R.id.cb_notifications:
-                        if(mCbNotifications.isChecked()){
+                        if (mCbNotifications.isChecked()) {
                             Toast.makeText(getActivity(), "Enable2", Toast.LENGTH_SHORT).show();
-                        }else {
+                        } else {
                             Toast.makeText(getActivity(), "Disable", Toast.LENGTH_SHORT).show();
                         }
                         break;
@@ -128,11 +128,11 @@ public class FrOptions extends Fragment{
         return cbL;
     }
 
-    OnClickListener onClick(){
+    OnClickListener onClick() {
         OnClickListener onClick = new OnClickListener() {
             @Override
             public void onClick(View v) {
-                switch (v.getId()){
+                switch (v.getId()) {
 
                     case R.id.btn_wifis:
                         FragmentTransaction fTrans = getActivity().getFragmentManager().beginTransaction();
@@ -208,8 +208,8 @@ public class FrOptions extends Fragment{
         mDialogSchedule = new Dialog(getActivity());
         mDialogSchedule.requestWindowFeature(Window.FEATURE_NO_TITLE);
         mDialogSchedule.setContentView(R.layout.dialog);
-        btn1  = (LinearLayout) mDialogSchedule.findViewById(R.id.tv_1);
-        btn5  = (LinearLayout) mDialogSchedule.findViewById(R.id.tv_5);
+        btn1 = (LinearLayout) mDialogSchedule.findViewById(R.id.tv_1);
+        btn5 = (LinearLayout) mDialogSchedule.findViewById(R.id.tv_5);
         btn10 = (LinearLayout) mDialogSchedule.findViewById(R.id.tv_10);
         btn20 = (LinearLayout) mDialogSchedule.findViewById(R.id.tv_20);
         btn30 = (LinearLayout) mDialogSchedule.findViewById(R.id.tv_30);
@@ -225,14 +225,14 @@ public class FrOptions extends Fragment{
         mDialogSchedule.show();
     }
 
-    void setScheduleTimeOn(){
+    void setScheduleTimeOn() {
         mDialogTimePikerOff = new Dialog(getActivity());
         mDialogTimePikerOff.requestWindowFeature(Window.FEATURE_NO_TITLE);
         mDialogTimePikerOff.setContentView(R.layout.time_picker_off);
         mDialogTimePikerOff.show();
 
         Button btnSetTime = (Button) mDialogTimePikerOff.findViewById(R.id.btn_set_time);
-        mTimePickerOff  = (TimePicker) mDialogTimePikerOff.findViewById(R.id.timePicker);
+        mTimePickerOff = (TimePicker) mDialogTimePikerOff.findViewById(R.id.timePicker);
         mTimePickerOff.setIs24HourView(true);
 
         btnSetTime.setOnClickListener(new OnClickListener() {

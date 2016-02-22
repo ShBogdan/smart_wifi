@@ -13,9 +13,9 @@ import java.util.List;
 public class DbHelper extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "wifiPoints";
-    private static final String TABLE_WIFI = "wifis";
-    private static final String KEY_ID = "id";
+    private static final String DATABASE_NAME = "wifiPoints.db";
+    public static final String TABLE_NAME = "wifis";
+    public static final String KEY_ID = "id";
     private static final String KEY_NAME = "name";
     private static final String KEY_CELLS = "cells";
 
@@ -26,7 +26,7 @@ public class DbHelper extends SQLiteOpenHelper {
     // Creating Tables
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_WIFI + "("
+        String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_NAME + "("
                 + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT,"
                 + KEY_CELLS + " TEXT" + ")";
         db.execSQL(CREATE_CONTACTS_TABLE);
@@ -36,7 +36,7 @@ public class DbHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // Drop older table if existed
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_WIFI);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         // Create tables again
         onCreate(db);
     }
@@ -49,30 +49,26 @@ public class DbHelper extends SQLiteOpenHelper {
         values.put(KEY_CELLS, String.valueOf(wifi.getCells()));
 
         // Inserting Row
-        db.insert(TABLE_WIFI, null, values);
+        db.insert(TABLE_NAME, null, values);
         db.close(); // Closing database connection
     }
 
     public WFItem getWiFi(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query(TABLE_WIFI, new String[] { KEY_ID,
-                        KEY_NAME, KEY_CELLS }, KEY_ID + "=?",
-                new String[] { String.valueOf(id) }, null, null, null, null);
+
+        Cursor cursor = db.query(TABLE_NAME, new String[]{KEY_ID, KEY_NAME, KEY_CELLS}, KEY_ID + "=?", new String[]{String.valueOf(id)}, null, null, null, null);
         if (cursor != null)
             cursor.moveToFirst();
 
-        WFItem wifi = new WFItem(Integer.parseInt(cursor.getString(0)),
-                cursor.getString(1),
-                (ArrayList<String>) Arrays.asList(cursor.getString(2).split(",")));
-        // return contact
+        WFItem wifi = new WFItem(Integer.parseInt(cursor.getString(0)), cursor.getString(1), (ArrayList<String>) Arrays.asList(cursor.getString(2).split(",")));
+
         return wifi;
     }
 
-
-    public List<WFItem> getAllContacts() {
+    public List<WFItem> getAllWiFis() {
         List<WFItem> wifiList = new ArrayList<WFItem>();
 
-        String selectQuery = "SELECT  * FROM " + TABLE_WIFI;
+        String selectQuery = "SELECT  * FROM " + TABLE_NAME;
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -100,15 +96,21 @@ public class DbHelper extends SQLiteOpenHelper {
         values.put(KEY_CELLS, String.valueOf(wifi.getCells()));
 
         // updating row
-        return db.update(TABLE_WIFI, values, KEY_ID + " = ?",
-                new String[] { String.valueOf(wifi.getId()) });
+        return db.update(TABLE_NAME, values, KEY_ID + " = ?",
+                new String[]{String.valueOf(wifi.getId())});
     }
 
     public void deleteContact(WFItem wifi) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_WIFI, KEY_ID + " = ?",
+        db.delete(TABLE_NAME, KEY_ID + " = ?",
                 new String[]{String.valueOf(wifi.getId())});
         db.close();
     }
 
+    public void deleteContactById(String id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_NAME, KEY_ID + " = ?",
+                new String[]{id});
+        db.close();
+    }
 }
