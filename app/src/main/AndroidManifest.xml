@@ -18,12 +18,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <service android:name="android.bogdan.com.autowifi.ServiceMonitor"/>
+        <provider
+            android:authorities="com.bogdan.autowifi.AutoWiFiProvider"
+            android:name="android.bogdan.com.autowifi.AutoWiFiProvider"/>
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-    </application>
+        </application>
 
 </manifest>
