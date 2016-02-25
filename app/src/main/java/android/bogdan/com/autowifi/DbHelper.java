@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,6 +13,7 @@ import java.util.List;
 
 public class DbHelper extends SQLiteOpenHelper {
 
+    private final String MY_LOG = "MyLog";
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "wifiPoints.db";
     public static final String TABLE_NAME = "wifis";
@@ -76,10 +78,14 @@ public class DbHelper extends SQLiteOpenHelper {
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
+                Log.d(MY_LOG, cursor.getString(0) + " " + cursor.getString(1) + " " + cursor.getString(2));
                 WFItem wifi = new WFItem();
                 wifi.setId(Integer.parseInt(cursor.getString(0)));
                 wifi.setName(cursor.getString(1));
-                wifi.setCells((ArrayList<String>) Arrays.asList(cursor.getString(2).split(",")));
+                ArrayList<String> temp = new ArrayList<>();
+                temp.add("1111");
+                temp.add("22222222");
+                wifi.setCells(temp /*Arrays.asList(cursor.getString(2).split(",")*/);
                 // Adding contact to list
                 wifiList.add(wifi);
             } while (cursor.moveToNext());

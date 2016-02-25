@@ -3,7 +3,7 @@ package android.bogdan.com.autowifi;
 import java.util.ArrayList;
 
 public class WFItem {
-    int mId;
+    Integer mId;
     private String mName;
     private ArrayList<String> mCells;
 

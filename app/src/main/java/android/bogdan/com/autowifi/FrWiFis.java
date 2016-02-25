@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
@@ -18,6 +20,8 @@ public class FrWiFis extends Fragment {
     ArrayList<WFItem> mNetworks;
 
     ListView mListView;
+    Button add;
+    EditText name, wifiid;
 
     LinearLayout mBtnOptions;
 
@@ -31,6 +35,17 @@ public class FrWiFis extends Fragment {
 
         mAdapter = new WiFiListAdapter(getActivity(), mNetworks);
         mListView.setAdapter(mAdapter);
+///
+        add = (Button) view.findViewById(R.id.btn_add_wifi);
+        name = (EditText) view.findViewById(R.id.editTextName);
+        wifiid = (EditText) view.findViewById(R.id.editTextID);
+        add.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                new DbHelper(getActivity()).addWiFi(new WFItem(null, name.getText().toString(), new ArrayList<String>()));
+            }
+        });
+///
 
 
         mBtnOptions = (LinearLayout) view.findViewById(R.id.btn_options);
@@ -44,7 +59,6 @@ public class FrWiFis extends Fragment {
                         fTrans.replace(R.id.fragment_container, new FrOptions());
                         fTrans.addToBackStack(null).commit();
                         break;
-
                 }
             }
         });
