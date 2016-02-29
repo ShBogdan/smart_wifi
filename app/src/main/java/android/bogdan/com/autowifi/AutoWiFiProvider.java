@@ -57,12 +57,12 @@ public class AutoWiFiProvider extends ContentProvider {
     public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
 
         SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
-        qb.setTables(wifiDataBase.TABLE_NAME);
+        qb.setTables(wifiDataBase.TABLE_WIFIS);
 
         switch (uriMatcher.match(uri)) {
             case WIFI_ID:
                 String id = uri.getPathSegments().get(1); //0 название таблицы, 1 то что идет после #
-                qb.appendWhere(wifiDataBase.KEY_ID + "=" + id);
+                qb.appendWhere(wifiDataBase.KEY_WIFIS_ID + "=" + id);
                 break;
 
             case WIFIS:
@@ -92,7 +92,7 @@ public class AutoWiFiProvider extends ContentProvider {
             values = new ContentValues();
         }
 
-        long rowId = db.insert(wifiDataBase.TABLE_NAME, null, values); //
+        long rowId = db.insert(wifiDataBase.TABLE_WIFIS, null, values); //
 
         if (rowId > 0) {
             Uri resultUri = ContentUris.withAppendedId(URI, rowId);
@@ -109,16 +109,16 @@ public class AutoWiFiProvider extends ContentProvider {
         int count;
         switch (uriMatcher.match(uri)) {
             case WIFIS:
-                count = db.delete(wifiDataBase.TABLE_NAME, where, whereArgs);
+                count = db.delete(wifiDataBase.TABLE_WIFIS, where, whereArgs);
                 break;
             case WIFI_ID:
                 String id = uri.getPathSegments().get(1);
-                String finalWhere = wifiDataBase.KEY_ID + "=" + id;
+                String finalWhere = wifiDataBase.KEY_WIFIS_ID + "=" + id;
                 //Добавляем условие WHERE если оно задано
                 if (where != null) {
                     finalWhere = finalWhere + " AND " + where;
                 }
-                count = db.delete(wifiDataBase.TABLE_NAME, finalWhere, whereArgs);
+                count = db.delete(wifiDataBase.TABLE_WIFIS, finalWhere, whereArgs);
                 break;
             default:
                 throw new IllegalArgumentException("URI не найден!" + uri);
@@ -134,17 +134,17 @@ public class AutoWiFiProvider extends ContentProvider {
         switch (uriMatcher.match(uri)) {
 
             case WIFIS:
-                count = db.update(wifiDataBase.TABLE_NAME, values, where, whereArgs);
+                count = db.update(wifiDataBase.TABLE_WIFIS, values, where, whereArgs);
                 break;
 
             case WIFI_ID:
                 String id = uri.getPathSegments().get(1);
-                String finalWhere = wifiDataBase.KEY_ID + " = " + id;
+                String finalWhere = wifiDataBase.KEY_WIFIS_ID + " = " + id;
 
                 if (where != null) {
                     finalWhere = finalWhere + " AND " + where;
                 }
-                count = db.update(wifiDataBase.TABLE_NAME, values, finalWhere, whereArgs);
+                count = db.update(wifiDataBase.TABLE_WIFIS, values, finalWhere, whereArgs);
                 break;
 
             default:

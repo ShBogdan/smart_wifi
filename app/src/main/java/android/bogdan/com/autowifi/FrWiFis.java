@@ -16,6 +16,8 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 public class FrWiFis extends Fragment {
+    private final String MY_LOG = "MyLog";
+
     WiFiListAdapter mAdapter;
     ArrayList<WFItem> mNetworks;
 
@@ -39,10 +41,14 @@ public class FrWiFis extends Fragment {
         add = (Button) view.findViewById(R.id.btn_add_wifi);
         name = (EditText) view.findViewById(R.id.editTextName);
         wifiid = (EditText) view.findViewById(R.id.editTextID);
-        add.setOnClickListener(new View.OnClickListener(){
+        final ArrayList<String> list = new ArrayList<String>();
+
+
+        add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new DbHelper(getActivity()).addWiFi(new WFItem(null, name.getText().toString(), new ArrayList<String>()));
+                list.add(wifiid.getText().toString());
+                new DbHelper(getActivity()).addWiFi(new WFItem(null, name.getText().toString(), list));
             }
         });
 ///
