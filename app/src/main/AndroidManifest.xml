@@ -22,6 +22,7 @@
         <service android:name="android.bogdan.com.autowifi.ServiceMonitor"/>
         <provider
             android:authorities="com.bogdan.autowifi.AutoWiFiProvider"
+            android:multiprocess="true"
             android:name="android.bogdan.com.autowifi.AutoWiFiProvider"/>
 
         <activity android:name=".MainActivity">

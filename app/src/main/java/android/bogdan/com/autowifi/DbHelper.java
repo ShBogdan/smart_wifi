@@ -19,13 +19,13 @@ public class DbHelper extends SQLiteOpenHelper {
 
     public static final String TABLE_WIFIS = "wifis";
     public static final String KEY_WIFIS_ID = "id";
-    private static final String KEY_NAME = "name";
+    public static final String KEY_NAME = "name";
 //    private static final String KEY_CELLS = "cells";
 
-    private static final String TABLE_CELLS = "cells";
-    private static final String KEY_CELLS_ID = "id";
-    private static final String KEY_CELLS_FOREIGN_ID = "fkId";
-    private static final String KEY_CELLS_CEll = "cell";
+    public static final String TABLE_CELLS = "cells";
+    public static final String KEY_CELLS_ID = "id";
+    public static final String KEY_CELLS_FOREIGN_ID = "fkId";
+    public static final String KEY_CELLS_CEll = "cell";
 
 
     public DbHelper(Context context) {
@@ -120,8 +120,8 @@ public class DbHelper extends SQLiteOpenHelper {
                 //wifi.setCells
                 ArrayList<String> listCells = new ArrayList<>();
                 String query = "SELECT " + KEY_CELLS_CEll +" FROM " + TABLE_CELLS + " WHERE " + KEY_CELLS_FOREIGN_ID + " = " + wifi_cursor.getInt(0);
-                SQLiteDatabase db1 = this.getWritableDatabase();
-                Cursor cell_cursor = db1.rawQuery(query, null);
+//                SQLiteDatabase db1 = this.getWritableDatabase();
+                Cursor cell_cursor = db.rawQuery(query, null);
                 if(cell_cursor.moveToFirst()){
                     do{
                         listCells.add(cell_cursor.getString(0));
@@ -147,20 +147,15 @@ public class DbHelper extends SQLiteOpenHelper {
         String query = "INSERT INTO " + TABLE_CELLS + "(" + KEY_CELLS_ID +", " + KEY_CELLS_CEll + ")" + " VALUES " + "("+ id + ", " + cells.get(0) +");";
         db.rawQuery(query, null);
         db.close();
-
     }
 
+//    возможно глючит
     public void deleteContact(WFItem wifi) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_WIFIS, KEY_WIFIS_ID + " = ?",
                 new String[]{String.valueOf(wifi.getId())});
-        db.close();
-    }
-
-    public void deleteContactById(String id) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_WIFIS, KEY_WIFIS_ID + " = ?",
-                new String[]{id});
+        db.delete(TABLE_CELLS, KEY_CELLS_FOREIGN_ID + " = ?",
+                new String[]{String.valueOf(wifi.getId())});
         db.close();
     }
 }

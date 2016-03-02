@@ -49,6 +49,7 @@ public class FrWiFis extends Fragment {
             public void onClick(View v) {
                 list.add(wifiid.getText().toString());
                 new DbHelper(getActivity()).addWiFi(new WFItem(null, name.getText().toString(), list));
+//                new DbHelper(getActivity()).deleteContact(new WFItem(null, name.getText().toString(), list));
             }
         });
 ///

@@ -13,6 +13,8 @@ import android.util.Log;
 import android.widget.Toast;
 
 public class ServiceMonitor extends Service {
+    Context mContext;
+
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
@@ -22,6 +24,7 @@ public class ServiceMonitor extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Toast.makeText(this, "Service Started", Toast.LENGTH_LONG).show();
+        mContext = this;
         /*Start service*/
         WifiManager wifi = (WifiManager) this.getSystemService(Context.WIFI_SERVICE);
         wifi.setWifiEnabled(true);
@@ -42,13 +45,17 @@ public class ServiceMonitor extends Service {
     }
 
 
-    int mInterval = 5000;
+    int mInterval = 20000;
     Handler mHandler = new Handler();
     Runnable mStatusChecker = new Runnable() {
         @Override
         public void run() {
             /*do something*/
             Log.d("MyService", "Service");
+
+//            ArrayList<String> list = new ArrayList<String>();
+//            list.add("6669");
+//            new DbHelper(mContext).addWiFi(new WFItem(null, "service2", list));
             mHandler.postDelayed(mStatusChecker, mInterval);
         }
     };
